@@ -8,9 +8,9 @@
 > [link]()
 
 ## how to test : 
-### Scenario A
+### 📌 Scenario A
 1. request to protected API without logging in
-> 📌 Scenario: An unauthenticated user tries to access a secured endpoint (/secure/hello)
+> Scenario: An unauthenticated user tries to access a secured endpoint (/secure/hello)
 ```shell
 curl -X GET http://localhost:8080/secure/hello
 ```
@@ -23,8 +23,9 @@ Expected:
 ➡️ Handled by: `CustomAuthenticationEntryPoint`</br>
 ➡️ HTTP Status: `401 Unauthorized`
 
-### Scenario B
+### 📌 Scenario B
 2. request to admin-only API after loggin in as a normal user
+> Scenario: A logged-in user (with USER role) tries to access an admin-only endpoint (/secure/admin)
 ```shell
 curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/x-www-form-urlencoded" \
