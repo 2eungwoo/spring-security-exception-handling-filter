@@ -18,3 +18,8 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+jwt:
+  secret: asdflkasdafasdfsdfsadjsdflsdk1231241241jf;daslkfj;
+  access: 3600000
+  refresh: 1209600000
