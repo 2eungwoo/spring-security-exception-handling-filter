@@ -5,7 +5,7 @@
 > To handle these exceptions properly`(authentication/authorization`),</br> we need to make our own `customExceptionHandlers` that intercepts and processes the exceptions at the correct point the the filter chain
 
 ## blog
-> [link]()
+> [link](https://2eungwoo.tistory.com/entry/Spring-Security-Exception-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9E%A1%EB%8A%94%EA%B1%B0-%EC%95%84%EB%8B%8C%EB%8D%B0)
 
 ## how to test : 
 ### 📌 Scenario A
