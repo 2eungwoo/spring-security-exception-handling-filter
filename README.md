@@ -7,22 +7,24 @@
 ## blog
 > [link]()
 
-## how to test
-> user login -> need auth api call
+## how to test : 
+### Scenario A
+1. request to protected API without logging in
+> 📌 Scenario: An unauthenticated user tries to access a secured endpoint (/secure/hello)
 ```shell
-curl -X POST http://localhost:8080/login \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=test&password=1234" \
-  -c cookies.txt && \
-curl -X GET http://localhost:8080/secure/hello -b cookies.txt 
+curl -X GET http://localhost:8080/secure/hello
 ```
-you might have result like
+Expected:
 ```
-Secure Hello
+{
+  "message":"로그인이 필요합니다."
+}
 ```
+➡️ Handled by: `CustomAuthenticationEntryPoint`</br>
+➡️ HTTP Status: `401 Unauthorized`
 
----
-> user login -> admin only api call
+### Scenario B
+2. request to admin-only API after loggin in as a normal user
 ```shell
 curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -30,10 +32,16 @@ curl -X POST http://localhost:8080/login \
   -c cookies.txt && \
 curl -X GET http://localhost:8080/secure/admin -b cookies.txt
 ```
-you might have result like
+Expected:
 ```
-Admin Only
+{
+  "message": "접근 권한이 없습니다."
+}
 ```
+➡️ Handled by: `CustomAccessDeniedHandler`</br>
+➡️ HTTP Status: `403 Forbidden`
+
+
 
 ## etc
 > updated in 2025.07.06
