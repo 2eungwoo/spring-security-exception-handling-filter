@@ -15,7 +15,7 @@
 curl -X GET http://localhost:8080/secure/hello
 ```
 Expected:
-```
+```json
 {
   "message":"로그인이 필요합니다."
 }
@@ -34,7 +34,7 @@ curl -X POST http://localhost:8080/login \
 curl -X GET http://localhost:8080/secure/admin -b cookies.txt
 ```
 Expected:
-```
+```json
 {
   "message": "접근 권한이 없습니다."
 }
